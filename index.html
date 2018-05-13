@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js xml parser</title>
+
+  <style>
+    .container {
+      max-width: 700px;
+      width: 90vw;
+      margin: 0 auto;
+    }
+
+    div#dd {
+      margin: 100px 0 60px;
+      padding: 24px;
+      border-radius: 5px;
+      background: whitesmoke;
+      color: gray;
+      font-size: 1.2rem;
+      height: 100px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #dd.active {
+      transition: all 0.3s;
+      background: #93ddf3;
+      box-shadow: 0px 11px 18px -3px rgba(0,0,0,0.2);
+      color: #222;
+    }
+
+    div#output ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    div#output ul li {
+      border-bottom: 1px solid lightgray;
+      padding: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    div#output ul li.has-error {
+      color: red;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div id="app">
+    <div id="dd" :class="{ 'active': showFileUploader }" @dragover="dragOver" @dragleave="dragLeave" @drop="dragEnd">ここにファイルをドロップしてください</div>
+
+    <div id="output">
+      <p v-show="outputFiles.length === 0">ダウンロードできるファイルはありません</p>
+      <ul v-show="outputFiles.length > 0">
+        <li v-for="file in outputFiles" :class="{ 'has-error': !!file.error }">
+          <span class="name">{{file.name}}</span>
+          <span class="error" v-show="file.error">{{file.error}}</span>
+          <a :href="downloadBlob(file)" class="dl-button" v-show="!file.error" :download="file.name">DL</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+</body>
+<script src="build.js"></script>
+</html>

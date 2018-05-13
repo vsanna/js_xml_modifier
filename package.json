@@ -1,0 +1,22 @@
+{
+  "name": "xml",
+  "version": "1.0.0",
+  "description": "== README",
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "watch": "npm run build:dev",
+    "build:prod": "NODE_ENV=production webpack --colors --config ./webpack.config.js",
+    "build:dev": "NODE_ENV=development webpack --colors --watch --config ./webpack.config.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ts-loader": "^3.5.0",
+    "typescript": "^2.7.1",
+    "webpack": "^3.8.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

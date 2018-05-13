@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,      // 暗黙的anyを否定するオプション. trueにすると大変らしいので止めておく
+    "removeComments": true,      // コンパイル時にコメント除去
+    "preserveConstEnums": true,  // const enumしても値に展開されず、もととなる関数が残る
+    "sourceMap": true,           // .mapファイルを生成する
+    "strictNullChecks": true,    // null, undefinedをnull, undefined型以外には入れられなくする
+    "noUnusedLocals" : true,     // 使ってないローカル変数を検出する
+    "noImplicitThis": true,      // thisに型宣言がないと検出
+    "noUnusedParameters": true,  // 使ってない引数を検出
+    "noImplicitReturns": false,  // 戻り値が定義した方じゃないと検出
+    "alwaysStrict": true,        // 常に`use strict`になる.
+    "module": "es2015",          // require / importの挙動をes6に揃える. とりあえずこれで良さそう
+    "target": "es5",             // transpileした後に出力する形式. es5として出力する. (or es6として出力してその後webpackに渡すとか？)
+    "allowSyntheticDefaultImports": true, // es6 の import を直接使える
+    "moduleResolution": "node",  // 何だこれ. これを入れるとvue.jsがうまく動く
+    "jsx": "react",
+//    "outDir": "./app/assets/javascripts/build", // 出力先ディレクトリ
+//    "outFile": "build.js",                      // 出力先ファイル名. webpackで管理しているので不要ということ？
+    "pretty": true,              // なんだろ
+    "allowJs": true,             // .jsファイルをts間とやり取りできる
+    "traceResolution": false,    // 各種名前解決の様子をログに残してくれる
+    "typeRoots": [
+      "node_modules/@types",
+      "app/assets/javascripts/types" // オリジナルの型を指定
+    ],
+    "noErrorTruncation": true,   // エラーを省略しない
+
+    // default value
+    // For --target ES5: DOM,ES5,ScriptHost
+    // For --target ES6: DOM,ES6,DOM.Iterable,ScriptHost
+    "lib": [
+      "ES2015",
+      "DOM",     // console, window. HTMLMetaElementなどが利用できる
+      "ES2016",
+      "es2017"
+    ]
+  },
+  "include": [
+    "./"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
