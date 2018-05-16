@@ -11,7 +11,11 @@
     "build:prod": "NODE_ENV=production webpack --colors --config ./webpack.config.js",
     "build:dev": "NODE_ENV=development webpack --colors --watch --config ./webpack.config.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/jquery": "^3.3.1",
+    "jquery": "^3.3.1",
+    "vue": "^2.5.16"
+  },
   "devDependencies": {
     "ts-loader": "^3.5.0",
     "typescript": "^2.7.1",

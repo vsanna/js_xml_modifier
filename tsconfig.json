@@ -23,7 +23,6 @@
     "traceResolution": false,    // 各種名前解決の様子をログに残してくれる
     "typeRoots": [
       "node_modules/@types",
-      "app/assets/javascripts/types" // オリジナルの型を指定
     ],
     "noErrorTruncation": true,   // エラーを省略しない
 
