@@ -1,3 +1,8 @@
+## NOTICE
+This repo is not library. 
+So you cannot use any file of this repo for your usecase. These code are developed just for my porpose.
+Sorry.
+
 ## setup
 ```
 npm install
